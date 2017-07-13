@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView result;
     private String result_to_be_cal;
     private String operator;
+    private String operand;
+    private int equal_on;
 
 
     private void calculator_init(){
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         result.setText("0");
         result_to_be_cal = "EMPTY";
         operator = "NONE";
+        operand = "NONE";
+        equal_on = 0;
     }
 
     private void listener(){
@@ -94,219 +98,224 @@ public class MainActivity extends AppCompatActivity {
         keyboard_add.setOnClickListener(action_add);
     }
 
-    private void calc(){
-        if(!result_to_be_cal.equals("EMPTY") && !operator.equals("NONE")) {
-            float new_result_number = 0;
-            float result_number = Float.parseFloat(result_to_be_cal);
-            float current_number = Float.parseFloat(result.getText().toString());
-            switch (operator) {
-                case "ADD":
-                    new_result_number = result_number + current_number;
-                    break;
-                case "MUL":
-                    new_result_number = result_number * current_number;
-                    break;
-                case "DIV":
-                    new_result_number = result_number / current_number;
-                    break;
-                case "SUB":
-                    new_result_number = result_number - current_number;
-                    break;
-            }
-            String new_result = (int) new_result_number == new_result_number ?
-                    String.valueOf((int) new_result_number) : String.valueOf(new_result_number);
-            result.setText(new_result);
-        }
-    }
-
     private Button.OnClickListener number_7 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("7");
                 }else{
                     String new_result = result.getText().toString()+"7";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("7");
                 }else{
                     String new_result = result.getText().toString()+"7";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
+
         }
     };
 
     private Button.OnClickListener number_8 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("8");
                 }else{
                     String new_result = result.getText().toString()+"8";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("8");
                 }else{
                     String new_result = result.getText().toString()+"8";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_9 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("9");
                 }else{
                     String new_result = result.getText().toString()+"9";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("9");
                 }else{
                     String new_result = result.getText().toString()+"9";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_4 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("4");
                 }else{
                     String new_result = result.getText().toString()+"4";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("4");
                 }else{
                     String new_result = result.getText().toString()+"4";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_5 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("5");
                 }else{
                     String new_result = result.getText().toString()+"5";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("5");
                 }else{
                     String new_result = result.getText().toString()+"5";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_6 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("6");
                 }else{
                     String new_result = result.getText().toString()+"6";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("6");
                 }else{
                     String new_result = result.getText().toString()+"6";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_1 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("1");
                 }else{
                     String new_result = result.getText().toString()+"1";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("1");
                 }else{
                     String new_result = result.getText().toString()+"1";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_2 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("2");
                 }else{
                     String new_result = result.getText().toString()+"2";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("2");
                 }else{
                     String new_result = result.getText().toString()+"2";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_3 = new Button.OnClickListener() {
         public void onClick(View v) {
             if(operator.equals("NONE")){
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("3");
                 }else{
                     String new_result = result.getText().toString()+"3";
                     result.setText(new_result);
                 }
             }else{
-                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString()=="0"){
+                if(result_to_be_cal.equals(result.getText().toString()) || result.getText().toString().equals("0")){
                     result.setText("3");
                 }else{
                     String new_result = result.getText().toString()+"3";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_0 = new Button.OnClickListener() {
         public void onClick(View v) {
-            if(result.getText().toString()!="0" && !result_to_be_cal.equals(result.getText().toString())){
-                String new_result = result.getText().toString()+"0";
-                result.setText(new_result);
+            if(operator.equals("NONE")){
+                if(!result.getText().toString().equals("0")){
+                    String new_result = result.getText().toString()+"0";
+                    result.setText(new_result);
+                }else{
+                    return;
+                }
             }else{
-                result.setText("0");
+                if(!result_to_be_cal.equals(result.getText().toString())) {
+                    String new_result = result.getText().toString() + "0";
+                    result.setText(new_result);
+                }else{
+                    result.setText("0");
+                }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
     private Button.OnClickListener number_dot = new Button.OnClickListener() {
@@ -320,19 +329,22 @@ public class MainActivity extends AppCompatActivity {
                     result.setText(new_result);
                 }
             }else{
-                if(result.getText().toString()=="0"){
+                if(result.getText().toString().equals("0")){
                     result.setText("0.");
                 }else{
                     if(result.getText().toString().contains(".")) return;
                     String new_result = result.getText().toString()+".";
                     result.setText(new_result);
                 }
+                operand = result.getText().toString();
             }
+            if(equal_on==1) equal_on=0;
         }
     };
 
     private Button.OnClickListener number_equal = new Button.OnClickListener(){
         public void onClick(View v){
+            equal_on = 1;
             calc();
         }
     };
@@ -342,46 +354,77 @@ public class MainActivity extends AppCompatActivity {
             result.setText("0");
             result_to_be_cal = "EMPTY";
             operator = "NONE";
+            operand = "NONE";
         }
-    } ;
+    };
 
     private Button.OnClickListener action_mul = new Button.OnClickListener(){
         public void onClick(View v){
-            operator = "MUL";
-            if(!"".equals(result_to_be_cal)){
+            if(operator.equals("MUL") && !"".equals(result_to_be_cal) && equal_on!=1){
                 calc();
             }
+            operator = "MUL";
             result_to_be_cal = result.getText().toString();
+            if(equal_on==1) equal_on = 0;
         }
     };
     private Button.OnClickListener action_div = new Button.OnClickListener(){
         public void onClick(View v){
-            operator = "DIV";
-            if(!"".equals(result_to_be_cal)) {
+            if(operator.equals("DIV") && !"".equals(result_to_be_cal) && equal_on!=1){
                 calc();
             }
+            operator = "DIV";
             result_to_be_cal = result.getText().toString();
+            if(equal_on==1) equal_on = 0;
         }
     };
 
     private Button.OnClickListener action_sub = new Button.OnClickListener(){
         public void onClick(View v){
-            operator = "SUB";
-            if(!"".equals(result_to_be_cal)){
+            if(operator.equals("SUB") && !"".equals(result_to_be_cal) && equal_on!=1){
                 calc();
             }
+            operator = "SUB";
             result_to_be_cal = result.getText().toString();
+            if(equal_on==1) equal_on = 0;
         }
     };
     private Button.OnClickListener action_add = new Button.OnClickListener(){
         public void onClick(View v){
-            operator = "ADD";
-            if(!"".equals(result_to_be_cal)){
+            if(operator.equals("ADD") && !"".equals(result_to_be_cal) && equal_on!=1){
                 calc();
             }
+            operator = "ADD";
             result_to_be_cal = result.getText().toString();
+            if(equal_on==1) equal_on = 0;
         }
     };
+
+    private void calc(){
+        if(!result_to_be_cal.equals("EMPTY") && !operator.equals("NONE") && !operand.equals("NONE")) {
+            float new_result_number = 0;
+            float result_number = Float.parseFloat(result_to_be_cal);
+            float operand_number = Float.parseFloat(operand);
+            switch (operator) {
+                case "ADD":
+                    new_result_number = result_number + operand_number;
+                    break;
+                case "MUL":
+                    new_result_number = result_number * operand_number;
+                    break;
+                case "DIV":
+                    new_result_number = result_number / operand_number;
+                    break;
+                case "SUB":
+                    new_result_number = result_number - operand_number;
+                    break;
+            }
+            String new_result = (int) new_result_number == new_result_number ?
+                    String.valueOf((int) new_result_number) : String.valueOf(new_result_number);
+            result.setText(new_result);
+            result_to_be_cal = new_result;
+        }
+    }
 
     @Override
     protected void onPause(){
